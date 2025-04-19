@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسبحة إلكترونية</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        .input-container {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>مسبحة إلكترونية</h1>
+        <div class="circle" id="counterCircle">
+            0
+        </div>
+        
+        <div class="input-container">
+            <input type="text" id="dhikrInput" placeholder="أدخل الذكر هنا" />
+        </div>
+        
+        <button onclick="addBead()">اضغط للتسبيح</button>
+        <button onclick="restartTasbih()">إعادة البداية</button>
+    </div>
+
+    <script>
+        let counter = 0;
+        const counterCircle = document.getElementById("counterCircle");
+        const dhikrInput = document.getElementById("dhikrInput");
+
+        // إضافة تسبيح عند الضغط
+        function addBead() {
+            counter++;
+            counterCircle.innerText = counter;  // عرض الرقم داخل الدائرة
+        }
+
+        // إعادة المسبحة من البداية
+        function restartTasbih() {
+            counter = 0;
+            counterCircle.innerText = counter;  // إعادة العداد
+            dhikrInput.value = "";  // إعادة المربع النصي
+        }
+    </script>
+</body>
+</html>
